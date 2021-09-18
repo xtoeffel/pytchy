@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Christof Dittmar">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>How To - pytchy</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "How To";
+    var mkdocs_page_input_path = "how-to.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> pytchy</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../execution/">Execution</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">How To</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#png-file">PNG File</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output-cross-stitch-pattern">Output, Cross Stitch Pattern</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">pytchy</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>How To</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="how-does-it-work">How does it work?</h1>
+<p>Each <em>distinct</em> color is converted to a symbol. 
+The picture is then converted into a symbol plot where each pixel is a 
+symbol (the symbol of the pixel color).</p>
+<p>Different symbol-sets are supported:</p>
+<ul>
+<li><em>default</em> - Default symbols like geometric shapes and signs</li>
+<li><em>letters</em> - Upper and lower case letters from <code>[A-Z][a-z]</code></li>
+<li><em>filled</em> - filled symbols</li>
+<li><em>skinny</em> - skinny symbols</li>
+</ul>
+<p>The number of supported colors equals the number of
+symbols in the symbol set. How many colors a symbol
+set supports
+can be printed in the command line by:</p>
+<pre><code class="language-bash">./pytchy -s &lt;symbol-set&gt; -m
+</code></pre>
+<p>The GUI will show the number of supported colors as a
+symbol set is selected.</p>
+<h2 id="png-file"><em>PNG</em> File</h2>
+<p>Recommended is to reduce the number of colors to about
+<code>16</code>, unless you want to challenge yourself.
+<a href="https://www.gimp.org/">Gimp</a> is a great tool for image manipulation just
+in case you do not have a favorite yet.</p>
+<blockquote>
+<p><strong>Observe</strong>: <em>Pytchy</em> will fail or halt
+if the <em>PNG</em> contains too many colors. Select
+a different symbol-set which supports more colors or reduce the number colors.</p>
+</blockquote>
+<p>As for the colors, the same applies to the size.
+Anything above <code>200 x 200</code> (width x height) is most likely too big.
+Again, unless you like the challenge.</p>
+<h2 id="output-cross-stitch-pattern">Output, Cross Stitch Pattern</h2>
+<p>Stitch pattern files are written in the directory
+where the <em>PNG</em> file is located.</p>
+<p>3 <em>HTML</em> files are generated from a <em>PNG</em> file:</p>
+<ul>
+<li>color plot</li>
+<li>stitch pattern</li>
+<li>legend (symbol to color)</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>The example is based on the <em>PNG</em> file <code>img/Pelican1.png</code> within
+the <code>pytchy</code> folder. The file is prepared with colors reduced
+to 15 and size set to <code>70 x 117</code>. Technically, it has 16 colors
+as <em>transparent</em> is treated as a <em>RGBA</em> color.</p>
+<p>This uses the <em>default</em> symbol set. For completeness,
+first check that the number of supported colors is sufficient.</p>
+<pre><code class="language-bash">./pytchy -s default -m
+</code></pre>
+<p>The output reads:</p>
+<blockquote>
+<p>Maximum permitted number of colors is 64.</p>
+</blockquote>
+<p>To generate the stitch pattern files call:</p>
+<pre><code class="language-bash">./pytchy -p img/Pelican1.png -s default
+</code></pre>
+<p>This writes the following files.:</p>
+<ul>
+<li><a href="../example/Pelican1_color_plot.html">img/Pelican1_color_plot.html</a> - color plot</li>
+<li><a href="../example/Pelican1_stitch_pattern.html">img/Pelican1_stitch_pattern.html</a> - stitch pattern with symbols</li>
+<li><a href="../example/Pelican1_legend.html">img/Pelican1_legend.html</a> - color to symbol legend</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: The <em>HTML</em> files will always be written in the folder of the 
+image file.</p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../execution/" class="btn btn-neutral" title="Execution"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../execution/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
