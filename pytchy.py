@@ -3,6 +3,7 @@
 
 """Main CLI."""
 from argparse import ArgumentParser
+from tki_gui.generate import HtmlFileSet
 from typing import Final, Dict
 from core.symbols import HtmlSymbolProvider, SymbolMatrix, HtmlFilledSymbolProvider
 from core.symbols import CharProvider, PSymbolProvider, SkinnySymbolProvider
@@ -53,11 +54,13 @@ class Pytchy:
             raise FileNotFoundError(self._png_file)
         png_parent_folder: Path = png_path.parent
 
+        # TODO: redundant - see tki_gui HtmlFileSet, file names should be defined by one class/function
         html_files: Dict[str, Path] = {
-            "color": png_parent_folder / (png_path.stem + "_color_pattern.html"),
+            "color": png_parent_folder / (png_path.stem + "_color_plot.html"),
             "stitch": png_parent_folder / (png_path.stem + "_stitch_pattern.html"),
             "legend": png_parent_folder / (png_path.stem + "_legend.html"),
         }
+
         if not self._overwrite_existing_files:
             for _, path in html_files.items():
                 if path.exists():
@@ -125,6 +128,7 @@ if __name__ == "__main__":
 
     pytchy: Pytchy = Pytchy()
 
+    # TODO: add cli-arg to print table of supported symbol-set and number of colors
     parser: ArgumentParser = ArgumentParser(
         prog="Pytchy",
         description=(
@@ -195,6 +199,7 @@ if __name__ == "__main__":
             "color-matrix, symbol-matrix and symbol-to-color legend"
         ),
     )
+    # TODO: confusing: pytchy -m, pytchy -s letters -m: not well documented and bad concept - remove
     parser.add_argument(
         "-m",
         "--max-color",

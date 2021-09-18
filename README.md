@@ -1,4 +1,4 @@
-# `Pytchy` - Create Cross Stitch Patterns
+# Create Cross Stitch Patterns
 
 `Pytchy` is a *Python* program for the generation of
 cross stitch pattern from *PNG* files.

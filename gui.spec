@@ -2,15 +2,15 @@
 
 block_cipher = None
 
-added_files = [
-    ('/Users/cdittmar/Programming/python/pytchy/icons/*.*', 'icons'),
-    ('/Users/cdittmar/Programming/python/pytchy/img/Pelican1.png', 'img')
+data_files = [
+    ('icons/*.*', 'icons'),
+    ('img/Pelican1.png', 'img')
 ]
 
 a = Analysis(['gui.py'],
              pathex=['/Users/cdittmar/Programming/python/pytchy'],
              binaries=[],
-             datas=added_files,
+             datas=data_files,
              hiddenimports=['PIL._tkinter_finder'],
              hookspath=[],
              runtime_hooks=[],

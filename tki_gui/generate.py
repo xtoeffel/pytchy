@@ -24,29 +24,31 @@ class HtmlOutput:
         self.css = None
 
 
+# TODO: move to in_out/html? redundant shared with pytchy.py
 @dataclass
 class HtmlFileSet:
 
     stitch_pattern: HtmlOutput
-    color_pattern: HtmlOutput
+    color_plot: HtmlOutput
     legend: HtmlOutput
 
     def __init__(self):
         self.stitch_pattern = HtmlOutput()
-        self.color_pattern = HtmlOutput()
+        self.color_plot = HtmlOutput()
         self.legend = HtmlOutput()
 
     def files_exist(self) -> bool:
         assert self.stitch_pattern.file_path is not None
-        assert self.color_pattern.file_path is not None
+        assert self.color_plot.file_path is not None
         assert self.legend.file_path is not None
         return (
             self.stitch_pattern.file_path.exists()
-            or self.color_pattern.file_path.exists()
+            or self.color_plot.file_path.exists()
             or self.legend.file_path.exists()
         )
 
 
+# TODO: move to HtmlFileSet.__init__()? & share with pytchy.py
 def init_html_file_set(png_file_name: str) -> HtmlFileSet:
     if str is None:
         raise ValueError("Undefined PNG file name")
@@ -56,7 +58,7 @@ def init_html_file_set(png_file_name: str) -> HtmlFileSet:
 
     hfs: HtmlFileSet = HtmlFileSet()
     hfs.stitch_pattern.file_path = parent / (path.stem + "_stitch_pattern.html")
-    hfs.color_pattern.file_path = parent / (path.stem + "_color_pattern.html")
+    hfs.color_plot.file_path = parent / (path.stem + "_color_plot.html")
     hfs.legend.file_path = parent / (path.stem + "_legend.html")
 
     return hfs
@@ -134,8 +136,8 @@ class GeneratePatternFiles:
                 self.png_file_name.get()
             )
 
-            output_html_files.color_pattern.html = MatrixHtmlTable(self.color_matrix)
-            output_html_files.color_pattern.css = MatrixTableCSS()
+            output_html_files.color_plot.html = MatrixHtmlTable(self.color_matrix)
+            output_html_files.color_plot.css = MatrixTableCSS()
 
             symbol_matrix: SymbolMatrix = SymbolMatrix(
                 self.color_matrix, self.symbol_provider
@@ -152,7 +154,7 @@ class GeneratePatternFiles:
             output_html_files.legend.html = LegendHtmlTable(symbol_matrix.legend)
             output_html_files.legend.css = LegendCSS()
 
-            self._write_html_file(output_html_files.color_pattern)
+            self._write_html_file(output_html_files.color_plot)
             self._write_html_file(output_html_files.stitch_pattern)
             self._write_html_file(output_html_files.legend)
 
