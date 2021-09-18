@@ -1,0 +1,11 @@
+site_name: pytchy
+site_author: Christof Dittmar
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Start the Tool: tool-start.md
+  - How To: how-to.md
+
+
+theme: readthedocs

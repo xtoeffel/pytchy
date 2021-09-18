@@ -1,0 +1,10 @@
+name: pytchybuild
+channels:
+  - default
+dependencies:
+  - python
+  - pip
+  - pip:
+    - pillow
+    - pyinstaller
+    - mkdocs

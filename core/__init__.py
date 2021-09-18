@@ -1,0 +1,1 @@
+"""Core classes for generation of symbols (for id of strings of stitch)."""

@@ -1,0 +1,14 @@
+name: pytchy
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pre-commit
+  - pytest
+  - mypy
+  - flake8
+  - black
+  - rope
+  - pillow
+  - pyinstaller
+  - mkdocs
