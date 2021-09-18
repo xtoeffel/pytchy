@@ -8,5 +8,5 @@ The tool runs from the command line (or *shell*) or
 as a simple graphical user interface (GUI).
 
 ## Documentation
-The documentation can be found here
-# TODO: link documentation here
+The documentation can be found on 
+[https://xtoeffel.github.io/pytchy/](https://xtoeffel.github.io/pytchy/)
